@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.bbs.mapper.UserMapper">
+	<resultMap id="UserResult" type="jp.co.bbs.entity.User">
+		<result column="id" property="id" />
+		<result column="login_id" property="loginId" />
+		<result column="password" property="password" />
+		<result column="name" property="name" />
+		<result column="branch_id" property="branchId" />
+		<result column="department_id" property="departmentId" />
+		<result column="stop" property="stop" />
+		<result column="insert_date" property="insertDate" />
+		<result column="update_date" property="updateDate" />
+	</resultMap>
+	<select id="getUserAll" resultMap="UserResult">
+		select *
+		from bbs.users;
+	</select>
+	<!-- 編集SQL -->
+	<update id="userUpdate">
+		update bbs.users set name = #{name} where id = #{id}
+	</update>
+	<!-- 一件取得 -->
+	<select id="getUser" resultMap="UserResult" parameterType="int">
+		select id, name
+		from bbs.users
+		where id = #{id}
+	</select>
+</mapper>
