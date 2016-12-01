@@ -8,5 +8,7 @@ import jp.co.bbs.entity.User;
 public interface UserMapper {
 	User getUser(int id);
 	List<User> getUserAll();
-	int updateUser(UserDto dto);
+	int userUpdate(UserDto dto);
+	int signUp(String name);
+	User login(String loginId, String password);
 }

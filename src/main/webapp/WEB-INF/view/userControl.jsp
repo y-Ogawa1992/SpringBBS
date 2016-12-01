@@ -8,7 +8,15 @@
 <title>Welcome</title>
 </head>
 <body>
+	<a href="${pageContext.request.contextPath}/bbs/">ホーム</a>
+	<a href="${pageContext.request.contextPath}/bbs/userControl/">管理画面</a>
+	<a href="${pageContext.request.contextPath}/bbs/signUp/">新規登録</a>
+	<a href="${pageContext.request.contextPath}/bbs/login/">ログイン</a>
+	<a href="${pageContext.request.contextPath}/bbs/newMessage/">新規投稿</a>
 	<h1>${message}</h1>
+
+
+
 	<c:forEach items="${users}" var="user">
 		<p>
 			<c:out value="${user.name}"></c:out>

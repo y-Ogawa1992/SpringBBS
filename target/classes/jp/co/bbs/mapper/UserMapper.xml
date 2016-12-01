@@ -23,8 +23,18 @@
 	</update>
 	<!-- 一件取得 -->
 	<select id="getUser" resultMap="UserResult" parameterType="int">
-		select id, name
+		select *
 		from bbs.users
 		where id = #{id}
+	</select>
+	//新規登録
+	<insert id="signUp" parameterType="String">
+		insert into bbs.users(name) values (#{name})
+	</insert>
+	<select id="login" resultMap="UserResult">
+		select *
+		from bbs.users
+		where login_id = #{login_id}
+		and password = #{password}
 	</select>
 </mapper>

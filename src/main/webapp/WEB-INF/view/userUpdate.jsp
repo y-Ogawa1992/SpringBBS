@@ -8,11 +8,20 @@
 <title>Welcome</title>
 </head>
 <body>
-    <h1>${message}</h1>
-    Nameを更新してください。
-    <form:form modelAttribute="UserForm">
+	<a href="${pageContext.request.contextPath}/bbs/">ホーム</a>
+	<a href="${pageContext.request.contextPath}/bbs/userControl/">管理画面</a>
+	<a href="${pageContext.request.contextPath}/bbs/signUp/">新規登録</a>
+	<a href="${pageContext.request.contextPath}/bbs/login/">ログイン</a>
+	<a href="${pageContext.request.contextPath}/bbs/newMessage/">新規投稿</a>
+	<h1>${message}</h1>
+
+    <form:form modelAttribute="userForm">
         <p>ID: ${user.id}</p>
-		<p>NAME: <form:imput ></p>
+  		<p>NAME: <form:input path="name" /></p>
+  		<p>LOGINID: <form:input path="loginId" /></p>
+  		<p>BRANCH: <form:select path="branchId" /></p>
+  		<p>DEPARTMENT <form:select path="departmentId" /></p>
+
         <input type="submit">
     </form:form>
 </body>
